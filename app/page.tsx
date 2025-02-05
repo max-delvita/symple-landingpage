@@ -27,18 +27,19 @@ export default function LandingPage() {
     setIsSubmittingEmail(true)
 
     try {
-      const { error } = await supabase
+      const { error: supabaseError } = await supabase
         .from('email_signups')
         .insert([{ email }])
 
-      if (error) throw error
+      if (supabaseError) throw supabaseError
 
       toast({
         title: "Success!",
         description: "Thank you for signing up. We'll be in touch soon.",
       })
       setEmail("")
-    } catch (error) {
+    } catch (err) {
+      console.error('Error submitting email:', err)
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
@@ -54,7 +55,7 @@ export default function LandingPage() {
     setIsSubmittingForm(true)
 
     try {
-      const { error } = await supabase
+      const { error: supabaseError } = await supabase
         .from('lead_forms')
         .insert([{
           full_name: formData.fullName,
@@ -63,7 +64,7 @@ export default function LandingPage() {
           use_case: formData.useCase,
         }])
 
-      if (error) throw error
+      if (supabaseError) throw supabaseError
 
       toast({
         title: "Success!",
@@ -75,7 +76,8 @@ export default function LandingPage() {
         companyName: "",
         useCase: "",
       })
-    } catch (error) {
+    } catch (err) {
+      console.error('Error submitting form:', err)
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
