@@ -93,6 +93,9 @@ export default function LandingPage() {
             <Link href="#how-it-works" className="text-base hover:text-primary custom-transition">
               How It Works
             </Link>
+            <Link href="/team" className="text-base hover:text-primary custom-transition">
+              Team
+            </Link>
           </div>
         </div>
       </nav>
