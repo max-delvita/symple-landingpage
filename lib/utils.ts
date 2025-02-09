@@ -5,9 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+interface Window {
+  gtag: (command: string, ...args: unknown[]) => void;
+}
+
 // Google Analytics Event Tracking
-export const trackEvent = (eventName: string, properties?: Record<string, any>) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', eventName, properties);
+export const trackEvent = (eventName: string, properties?: Record<string, unknown>) => {
+  if (typeof window !== 'undefined' && 'gtag' in window) {
+    (window as unknown as { gtag: Window['gtag'] }).gtag('event', eventName, properties);
   }
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, Calendar, FileText, PiggyBank, BarChart3, Users } from "lucide-react"
 import { useState } from "react"
 
@@ -82,7 +83,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
         <div className="custom-screen flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 hover-lift">
-            <img src="/logo.svg" alt="AskSymple Logo" className="h-8 w-8" />
+            <Image src="/logo.svg" alt="AskSymple Logo" width={32} height={32} />
             <span className="text-xl font-semibold">AskSymple.ai</span>
           </Link>
           <div className="flex items-center space-x-8">
@@ -190,12 +191,14 @@ export default function LandingPage() {
       <div className="relative">
         <div 
           className="absolute m-auto blur-[160px] max-w-3xl h-[250px] top-12 inset-0 sm:h-[300px] lg:h-[650px]" 
-          style={{background: "linear-gradient(180deg, rgba(232, 140, 81, 1) 0%, rgba(232, 140, 81, 0.6) 30%, rgba(232, 140, 81, 0.3) 70%, rgba(232, 140, 81, 0.1) 100%)"}}
+          style={{background: "linear-gradient(180deg, #E88C51 0%, rgba(255, 200, 150, 0.984375) 0.01%, rgba(232, 140, 81, 0.2) 100%)"}}
         />
-        <img 
+        <Image 
           alt="Background pattern" 
           src="https://mailgo-rho.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg-pattern.5aa07776.webp&w=3840&q=75"
           className="absolute inset-0 w-full h-full object-cover opacity-5"
+          width={3840}
+          height={2160}
         />
         <div className="custom-screen py-28 relative">
           <div className="relative z-10 duration-1000 delay-300 opacity-1">
@@ -206,7 +209,9 @@ export default function LandingPage() {
               <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
                 <a href="mailto:bot@alphagamma.ai" className="underline">amy@asksymple.ai</a>
               </h2>
-
+              <p className="mt-5 text-gray-300 text-xl max-w-2xl mx-auto">
+                AskSymple is the perfect answer! Our AI-based email marketing platform enables you to create highly targeted email campaigns that are tailored to each individual subscriber.
+              </p>
             </div>
             <div className="mt-8 flex justify-center font-medium">
               <Button 
