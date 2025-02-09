@@ -110,7 +110,7 @@ export default function LandingPage() {
               </div>
             </h1>
             <p className="text-center text-xl text-muted-foreground max-w-3xl mx-auto">
-            Simplify your workflow with AskSymple. <br/>No new apps or interfaces—just send an email, and we'll handle the rest.
+            Simplify your workflow with AskSymple. <br/>No new apps or interfaces&mdash;just send an email, and we&apos;ll handle the rest.
             </p>
             <form onSubmit={handleEmailSignup} className="flex max-w-xl mx-auto gap-4 mt-8">
               <Input
