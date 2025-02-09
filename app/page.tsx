@@ -198,9 +198,12 @@ export default function LandingPage() {
             <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 order-1 md:order-1">
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-                    <h3 className="text-2xl md:text-3xl font-bold">Calendar Management</h3>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <Calendar className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                      <h3 className="text-2xl md:text-3xl font-bold">Calendar Management</h3>
+                    </div>
+                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Ready</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Effortlessly schedule and coordinate meetings across time zones. Our AI assistant handles all the back-and-forth, finds the perfect time slots, and sends out invitations—all through email.
@@ -236,9 +239,12 @@ export default function LandingPage() {
             <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 order-1 md:order-1">
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Mail className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-                    <h3 className="text-2xl md:text-3xl font-bold">Email Assistance</h3>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <Mail className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                      <h3 className="text-2xl md:text-3xl font-bold">Email Assistance</h3>
+                    </div>
+                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Ready</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Get help composing professional emails and intelligent response suggestions. Our AI analyzes context and tone to help you communicate effectively and maintain relationships.
@@ -274,9 +280,12 @@ export default function LandingPage() {
             <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 order-1 md:order-1">
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <FileText className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-                    <h3 className="text-2xl md:text-3xl font-bold">Content Processing</h3>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <FileText className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                      <h3 className="text-2xl md:text-3xl font-bold">Content Processing</h3>
+                    </div>
+                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Ready</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Summarize documents and convert formats seamlessly. Send any document to your AI assistant and get back concise summaries, format conversions, or extracted insights.
@@ -312,9 +321,12 @@ export default function LandingPage() {
             <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 order-1 md:order-1">
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <PiggyBank className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-                    <h3 className="text-2xl md:text-3xl font-bold">Financial Tasks</h3>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3 flex-shrink">
+                      <PiggyBank className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                      <h3 className="text-xl md:text-3xl font-bold">Financial Tasks</h3>
+                    </div>
+                    <span className="px-2 py-1 text-[10px] md:text-xs font-medium bg-amber-500/20 text-amber-500 rounded-full border border-amber-500/20 whitespace-nowrap flex-shrink-0">Coming Soon</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Simplify expense tracking and receipt processing. Forward receipts and financial documents to your AI assistant for automated categorization and expense reporting.
@@ -350,9 +362,12 @@ export default function LandingPage() {
             <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 order-1 md:order-1">
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <BarChart3 className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-                    <h3 className="text-2xl md:text-3xl font-bold">Data Analysis</h3>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3 flex-shrink">
+                      <BarChart3 className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                      <h3 className="text-xl md:text-3xl font-bold">Data Analysis</h3>
+                    </div>
+                    <span className="px-2 py-1 text-[10px] md:text-xs font-medium bg-amber-500/20 text-amber-500 rounded-full border border-amber-500/20 whitespace-nowrap flex-shrink-0">Coming Soon</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Perform rapid spreadsheet analyses and generate visualizations. Send your data to the AI assistant and receive back insightful analysis and beautiful charts.
@@ -388,9 +403,12 @@ export default function LandingPage() {
             <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
               <div className="w-full md:w-1/2 order-1 md:order-1">
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Users className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-                    <h3 className="text-2xl md:text-3xl font-bold">Lead Generation</h3>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3 flex-shrink">
+                      <Users className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                      <h3 className="text-xl md:text-3xl font-bold">Lead Generation</h3>
+                    </div>
+                    <span className="px-2 py-1 text-[10px] md:text-xs font-medium bg-amber-500/20 text-amber-500 rounded-full border border-amber-500/20 whitespace-nowrap flex-shrink-0">Coming Soon</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Search profiles and compile contact information efficiently. Let our AI assistant help you find and verify contact information for your prospective clients.
