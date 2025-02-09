@@ -191,7 +191,7 @@ export default function LandingPage() {
       <div className="relative">
         <div 
           className="absolute m-auto blur-[160px] max-w-3xl h-[250px] top-12 inset-0 sm:h-[300px] lg:h-[650px]" 
-          style={{background: "linear-gradient(180deg, #E88C51 0%, rgba(255, 200, 150, 0.984375) 0.01%, rgba(232, 140, 81, 0.2) 100%)"}}
+          style={{background: "linear-gradient(180deg, rgba(232, 140, 81, 0.5) 0%, rgba(255, 200, 150, 0.3) 0.01%, rgba(232, 140, 81, 0.1) 100%)"}}
         />
         <Image 
           alt="Background pattern" 
