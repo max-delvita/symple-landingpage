@@ -191,19 +191,19 @@ export default function LandingPage() {
           </div>
           
           <div className="mt-16 md:mt-24">
-            {/* Calendar Management - Image Left */}
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
+            {/* Calendar Management */}
+            <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
                     <li className="flex gap-2">
                       <span className="font-bold text-primary">1.</span>
-                      Email amy@asksymple.ai with subject "Schedule Meeting"
+                      Email the person you want to ivite to a meeting and Cc amy@asksymple.ai"
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold text-primary">2.</span>
-                      Include your preferred meeting times and participants
+                      Include your preferred meeting times.
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold text-primary">3.</span>
@@ -227,8 +227,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Email Assistance - Image Right */}
-            <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
+            {/* Email Assistance */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Mail className="h-6 w-6 md:h-8 md:w-8 text-primary" />
@@ -263,8 +263,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Content Processing - Image Left */}
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
+            {/* Content Processing */}
+            <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
@@ -299,8 +299,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Financial Tasks - Image Right */}
-            <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
+            {/* Financial Tasks */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <PiggyBank className="h-6 w-6 md:h-8 md:w-8 text-primary" />
@@ -335,8 +335,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Data Analysis - Image Left */}
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
+            {/* Data Analysis */}
+            <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
@@ -371,8 +371,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Lead Generation - Image Right */}
-            <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
+            {/* Lead Generation */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Users className="h-6 w-6 md:h-8 md:w-8 text-primary" />
