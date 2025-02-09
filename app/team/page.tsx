@@ -22,14 +22,14 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Upasna Bhandari",
-    title: "Chief Experience Officer",
+    title: "Co-Founder & Chief Experience Officer",
     description: "Leading AskSymple's user experience and product strategy. Passionate about creating intuitive and impactful AI-driven solutions that transform how people work.",
     imageUrl: "/team/Upasna.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/upasnaux-sg/",
   },
   {
     name: "Davender Singh",
-    title: "Chief Technology Officer",
+    title: "Co-Founder & Chief Technology Officer",
     description: "Technology leader with extensive experience in AI and software engineering. Driving AskSymple's technical innovation and infrastructure to deliver cutting-edge AI solutions.",
     imageUrl: "/team/Davender.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/davender-singh/",
