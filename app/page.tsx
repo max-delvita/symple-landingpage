@@ -166,7 +166,7 @@ export default function LandingPage() {
             <form onSubmit={handleEmailSignup} className="flex flex-col md:flex-row max-w-xl mx-auto gap-4 mt-8 px-4 md:px-0">
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your company email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="h-12 bg-secondary border-none text-white placeholder:text-muted-foreground rounded-lg text-base shadow-glow"
@@ -196,7 +196,7 @@ export default function LandingPage() {
           <div className="mt-16 md:mt-24">
             {/* Calendar Management */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
-              <div className="w-full md:w-1/2 order-last md:order-first space-y-4 md:space-y-6">
+              <div className="w-full md:w-1/2 order-1 md:order-1 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Calendar className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                   <h3 className="text-2xl md:text-3xl font-bold">Calendar Management</h3>
@@ -205,7 +205,7 @@ export default function LandingPage() {
                   Effortlessly schedule and coordinate meetings across time zones. Our AI assistant handles all the back-and-forth, finds the perfect time slots, and sends out invitations—all through email.
                 </p>
               </div>
-              <div className="w-full md:w-1/2 order-first md:order-last">
+              <div className="w-full md:w-1/2 order-2 md:order-2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
@@ -232,7 +232,7 @@ export default function LandingPage() {
 
             {/* Email Assistance */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
-              <div className="w-full md:w-1/2 order-last md:order-first space-y-4 md:space-y-6">
+              <div className="w-full md:w-1/2 order-1 md:order-1 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Mail className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                   <h3 className="text-2xl md:text-3xl font-bold">Email Assistance</h3>
@@ -241,7 +241,7 @@ export default function LandingPage() {
                   Get help composing professional emails and intelligent response suggestions. Our AI analyzes context and tone to help you communicate effectively and maintain relationships.
                 </p>
               </div>
-              <div className="w-full md:w-1/2 order-first md:order-last">
+              <div className="w-full md:w-1/2 order-2 md:order-2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
@@ -268,7 +268,7 @@ export default function LandingPage() {
 
             {/* Content Processing */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
-              <div className="w-full md:w-1/2 order-last md:order-first space-y-4 md:space-y-6">
+              <div className="w-full md:w-1/2 order-1 md:order-1 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <FileText className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                   <h3 className="text-2xl md:text-3xl font-bold">Content Processing</h3>
@@ -277,7 +277,7 @@ export default function LandingPage() {
                   Summarize documents and convert formats seamlessly. Send any document to your AI assistant and get back concise summaries, format conversions, or extracted insights.
                 </p>
               </div>
-              <div className="w-full md:w-1/2 order-first md:order-last">
+              <div className="w-full md:w-1/2 order-2 md:order-2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
@@ -304,7 +304,7 @@ export default function LandingPage() {
 
             {/* Financial Tasks */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
-              <div className="w-full md:w-1/2 order-last md:order-first space-y-4 md:space-y-6">
+              <div className="w-full md:w-1/2 order-1 md:order-1 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <PiggyBank className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                   <h3 className="text-2xl md:text-3xl font-bold">Financial Tasks</h3>
@@ -313,7 +313,7 @@ export default function LandingPage() {
                   Simplify expense tracking and receipt processing. Forward receipts and financial documents to your AI assistant for automated categorization and expense reporting.
                 </p>
               </div>
-              <div className="w-full md:w-1/2 order-first md:order-last">
+              <div className="w-full md:w-1/2 order-2 md:order-2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
@@ -340,7 +340,7 @@ export default function LandingPage() {
 
             {/* Data Analysis */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-32">
-              <div className="w-full md:w-1/2 order-last md:order-first space-y-4 md:space-y-6">
+              <div className="w-full md:w-1/2 order-1 md:order-1 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <BarChart3 className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                   <h3 className="text-2xl md:text-3xl font-bold">Data Analysis</h3>
@@ -349,7 +349,7 @@ export default function LandingPage() {
                   Perform rapid spreadsheet analyses and generate visualizations. Send your data to the AI assistant and receive back insightful analysis and beautiful charts.
                 </p>
               </div>
-              <div className="w-full md:w-1/2 order-first md:order-last">
+              <div className="w-full md:w-1/2 order-2 md:order-2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
@@ -376,7 +376,7 @@ export default function LandingPage() {
 
             {/* Lead Generation */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              <div className="w-full md:w-1/2 order-last md:order-first space-y-4 md:space-y-6">
+              <div className="w-full md:w-1/2 order-1 md:order-1 space-y-4 md:space-y-6">
                 <div className="flex items-center gap-3">
                   <Users className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                   <h3 className="text-2xl md:text-3xl font-bold">Lead Generation</h3>
@@ -385,7 +385,7 @@ export default function LandingPage() {
                   Search profiles and compile contact information efficiently. Let our AI assistant help you find and verify contact information for your prospective clients.
                 </p>
               </div>
-              <div className="w-full md:w-1/2 order-first md:order-last">
+              <div className="w-full md:w-1/2 order-2 md:order-2">
                 <div className="bg-secondary/50 p-6 md:p-8 rounded-lg border border-border shadow-2xl space-y-4">
                   <h4 className="text-base md:text-lg font-semibold text-primary">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
