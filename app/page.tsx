@@ -85,7 +85,10 @@ export default function LandingPage() {
         <div className="custom-screen flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 hover-lift">
             <Image src="/logo.svg" alt="AskSymple Logo" width={32} height={32} />
-            <span className="text-lg md:text-xl font-semibold">AskSymple.ai</span>
+            <div className="flex items-center gap-2">
+              <span className="text-lg md:text-xl font-semibold">AskSymple.ai</span>
+              <span className="px-2 py-0.5 text-xs font-medium bg-gradient-to-r from-primary/20 to-primary/10 text-primary rounded-full border border-primary/20">Beta</span>
+            </div>
           </Link>
           
           {/* Desktop Navigation */}
