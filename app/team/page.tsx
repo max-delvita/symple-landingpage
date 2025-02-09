@@ -90,6 +90,25 @@ export default function TeamPage() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-8">
+        <div className="custom-screen">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-center text-sm text-muted-foreground">
+              © {new Date().getFullYear()} AskSymple.ai. All rights reserved.
+            </p>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary custom-transition">
+                Privacy
+              </Link>
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary custom-transition">
+                Terms
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 } 
