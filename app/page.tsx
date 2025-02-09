@@ -136,53 +136,228 @@ export default function LandingPage() {
       {/* Features Section */}
       <section id="features" className="py-32 animate-fade-in">
         <div className="custom-screen">
-          <h2 className="text-6xl font-bold text-center gradient-text-white">
-          What AskSymple Can Do for You
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-16">
-            {[
-              {
-                icon: Calendar,
-                title: "Calendar Management",
-                description: "Effortlessly schedule and coordinate meetings across time zones",
-              },
-              {
-                icon: Mail,
-                title: "Email Assistance",
-                description: "Compose drafts and receive intelligent response suggestions",
-              },
-              {
-                icon: FileText,
-                title: "Content Processing",
-                description: "Summarize documents and convert formats seamlessly",
-              },
-              {
-                icon: PiggyBank,
-                title: "Financial Tasks",
-                description: "Simplify expense tracking and receipt processing",
-              },
-              {
-                icon: BarChart3,
-                title: "Data Analysis",
-                description: "Perform rapid spreadsheet analyses and generate visualizations",
-              },
-              {
-                icon: Users,
-                title: "Lead Generation",
-                description: "Search profiles and compile contact information efficiently",
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-lg border border-border feature-card-gradient p-6 hover:bg-secondary/80 custom-transition hover-lift shadow-glow"
-              >
-                <div className="mb-4 text-primary">
-                  <feature.icon className="h-10 w-10" />
+          <div className="text-left max-w-4xl">
+            <h2 className="text-6xl font-bold gradient-text-white">
+              What AskSymple Can Do for You
+            </h2>
+          </div>
+          
+          <div className="mt-24">
+            {/* Calendar Management - Image Left */}
+            <div className="flex flex-col md:flex-row items-center gap-12 mb-32">
+              <div className="w-full md:w-1/2">
+                <div className="bg-secondary/50 p-8 rounded-lg border border-border shadow-2xl space-y-4">
+                  <h4 className="text-lg font-semibold text-primary">Try it yourself:</h4>
+                  <ol className="space-y-3 text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">1.</span>
+                      Email amy@asksymple.ai with subject "Schedule Meeting"
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">2.</span>
+                      Include your preferred meeting times and participants
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">3.</span>
+                      Our AI will coordinate with all participants and find the best time
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">4.</span>
+                      Receive a calendar invite with all details arranged
+                    </li>
+                  </ol>
                 </div>
-                <h3 className="mb-2 text-xl font-bold">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
               </div>
-            ))}
+              <div className="w-full md:w-1/2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <Calendar className="h-8 w-8 text-primary" />
+                  <h3 className="text-3xl font-bold">Calendar Management</h3>
+                </div>
+                <p className="text-xl text-muted-foreground">
+                  Effortlessly schedule and coordinate meetings across time zones. Our AI assistant handles all the back-and-forth, finds the perfect time slots, and sends out invitations—all through email.
+                </p>
+              </div>
+            </div>
+
+            {/* Email Assistance - Image Right */}
+            <div className="flex flex-col-reverse md:flex-row items-center gap-12 mb-32">
+              <div className="w-full md:w-1/2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <Mail className="h-8 w-8 text-primary" />
+                  <h3 className="text-3xl font-bold">Email Assistance</h3>
+                </div>
+                <p className="text-xl text-muted-foreground">
+                  Get help composing professional emails and intelligent response suggestions. Our AI analyzes context and tone to help you communicate effectively and maintain relationships.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="bg-secondary/50 p-8 rounded-lg border border-border shadow-2xl space-y-4">
+                  <h4 className="text-lg font-semibold text-primary">Try it yourself:</h4>
+                  <ol className="space-y-3 text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">1.</span>
+                      Forward any email to amy@asksymple.ai
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">2.</span>
+                      Add your instructions for the response
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">3.</span>
+                      Our AI will draft a contextual response
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">4.</span>
+                      Review, edit, and send the response
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Processing - Image Left */}
+            <div className="flex flex-col md:flex-row items-center gap-12 mb-32">
+              <div className="w-full md:w-1/2">
+                <div className="bg-secondary/50 p-8 rounded-lg border border-border shadow-2xl space-y-4">
+                  <h4 className="text-lg font-semibold text-primary">Try it yourself:</h4>
+                  <ol className="space-y-3 text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">1.</span>
+                      Email any document to amy@asksymple.ai
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">2.</span>
+                      Specify what you need (summary, conversion, analysis)
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">3.</span>
+                      Our AI will process the document
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">4.</span>
+                      Receive the processed content in your preferred format
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <FileText className="h-8 w-8 text-primary" />
+                  <h3 className="text-3xl font-bold">Content Processing</h3>
+                </div>
+                <p className="text-xl text-muted-foreground">
+                  Summarize documents and convert formats seamlessly. Send any document to your AI assistant and get back concise summaries, format conversions, or extracted insights.
+                </p>
+              </div>
+            </div>
+
+            {/* Financial Tasks - Image Right */}
+            <div className="flex flex-col-reverse md:flex-row items-center gap-12 mb-32">
+              <div className="w-full md:w-1/2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <PiggyBank className="h-8 w-8 text-primary" />
+                  <h3 className="text-3xl font-bold">Financial Tasks</h3>
+                </div>
+                <p className="text-xl text-muted-foreground">
+                  Simplify expense tracking and receipt processing. Forward receipts and financial documents to your AI assistant for automated categorization and expense reporting.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="bg-secondary/50 p-8 rounded-lg border border-border shadow-2xl space-y-4">
+                  <h4 className="text-lg font-semibold text-primary">Try it yourself:</h4>
+                  <ol className="space-y-3 text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">1.</span>
+                      Forward receipts to amy@asksymple.ai
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">2.</span>
+                      Specify categorization or reporting needs
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">3.</span>
+                      Our AI will process and organize the data
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">4.</span>
+                      Receive organized financial reports
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            {/* Data Analysis - Image Left */}
+            <div className="flex flex-col md:flex-row items-center gap-12 mb-32">
+              <div className="w-full md:w-1/2">
+                <div className="bg-secondary/50 p-8 rounded-lg border border-border shadow-2xl space-y-4">
+                  <h4 className="text-lg font-semibold text-primary">Try it yourself:</h4>
+                  <ol className="space-y-3 text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">1.</span>
+                      Send your data file to amy@asksymple.ai
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">2.</span>
+                      Describe the analysis you need
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">3.</span>
+                      Our AI will analyze and visualize the data
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">4.</span>
+                      Get insights and visualizations back
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <BarChart3 className="h-8 w-8 text-primary" />
+                  <h3 className="text-3xl font-bold">Data Analysis</h3>
+                </div>
+                <p className="text-xl text-muted-foreground">
+                  Perform rapid spreadsheet analyses and generate visualizations. Send your data to the AI assistant and receive back insightful analysis and beautiful charts.
+                </p>
+              </div>
+            </div>
+
+            {/* Lead Generation - Image Right */}
+            <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+              <div className="w-full md:w-1/2 space-y-6">
+                <div className="flex items-center gap-3">
+                  <Users className="h-8 w-8 text-primary" />
+                  <h3 className="text-3xl font-bold">Lead Generation</h3>
+                </div>
+                <p className="text-xl text-muted-foreground">
+                  Search profiles and compile contact information efficiently. Let our AI assistant help you find and verify contact information for your prospective clients.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="bg-secondary/50 p-8 rounded-lg border border-border shadow-2xl space-y-4">
+                  <h4 className="text-lg font-semibold text-primary">Try it yourself:</h4>
+                  <ol className="space-y-3 text-muted-foreground">
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">1.</span>
+                      Email your target criteria to amy@asksymple.ai
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">2.</span>
+                      Specify the type of leads you're looking for
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">3.</span>
+                      Our AI will search and verify contacts
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="font-bold text-primary">4.</span>
+                      Receive a curated list of qualified leads
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -207,10 +382,10 @@ export default function LandingPage() {
               Get Started: Email us at
               </h3>
               <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-                <a href="mailto:bot@alphagamma.ai" className="underline">amy@asksymple.ai</a>
+                <a href="mailto:amy@asksymple.ai" className="underline">amy@asksymple.ai</a>
               </h2>
-              <p className="mt-5 text-gray-300 text-xl max-w-2xl mx-auto">
-                AskSymple is the perfect answer! Our AI-based email marketing platform enables you to create highly targeted email campaigns that are tailored to each individual subscriber.
+              <p className="mt-4 text-gray-300 text-l max-w-2xl mx-auto">
+                AskSymple is the perfect answer! Our AI-based assitant can help you with many tediosu tasks, from very simple to more complex ones. <br/>We are still in Beta so please be patient. If you have any feedback or questions, send Amy an email and explain what you would like to get help with.
               </p>
             </div>
             <div className="mt-8 flex justify-center font-medium">
