@@ -136,8 +136,8 @@ export default function LandingPage() {
       {/* Features Section */}
       <section id="features" className="py-32 animate-fade-in">
         <div className="custom-screen">
-          <div className="text-left max-w-4xl">
-            <h2 className="text-6xl font-bold gradient-text-white">
+          <div className="text-center mx-auto max-w-4xl mb-24">
+            <h2 className="text-5xl font-bold gradient-text-white tracking-tight">
               What AskSymple Can Do for You
             </h2>
           </div>
