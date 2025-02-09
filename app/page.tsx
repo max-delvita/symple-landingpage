@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { supabase } from "@/lib/supabase"
 import { useToast } from "@/components/ui/use-toast"
+import { trackEvent } from "@/lib/utils"
 
 export default function LandingPage() {
   const { toast } = useToast()
@@ -28,6 +29,7 @@ export default function LandingPage() {
         description: "Please enter a valid email address (e.g., name@example.com)",
         variant: "destructive",
       })
+      trackEvent('email_validation_failed', { email })
       return
     }
 
@@ -40,9 +42,11 @@ export default function LandingPage() {
 
       if (supabaseError) {
         console.error('Supabase error:', supabaseError)
+        trackEvent('email_signup_error', { error: supabaseError.message })
         throw supabaseError
       }
 
+      trackEvent('email_signup_success', { email })
       toast({
         title: "Success!",
         description: "Thank you for signing up. Our agent will be in touch soon.",
@@ -53,12 +57,14 @@ export default function LandingPage() {
       
       const error = err as { code?: string }
       if (error?.code === '23505') {
+        trackEvent('email_signup_duplicate', { email })
         toast({
           title: "Uh-oh",
           description: "It seems you have already sent your email. You should have received a response from us. If not reach out to support@alphagamma.ai.",
           variant: "destructive",
         })
       } else {
+        trackEvent('email_signup_error', { error: JSON.stringify(err) })
         toast({
           title: "Error",
           description: "Something went wrong. Please try again.",
@@ -103,7 +109,7 @@ export default function LandingPage() {
               </div>
             </h1>
             <p className="text-center text-xl text-muted-foreground max-w-3xl mx-auto">
-            Simplify your workflow with AskSymple. <br/>No new apps or interfaces—just send an email, and we’ll handle the rest.
+            Simplify your workflow with AskSymple. <br/>No new apps or interfaces—just send an email, and we'll handle the rest.
             </p>
             <form onSubmit={handleEmailSignup} className="flex max-w-xl mx-auto gap-4 mt-8">
               <Input

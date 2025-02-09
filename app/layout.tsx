@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   },
 };
 
+const GA_MEASUREMENT_ID = 'G-D9NH697TD1'; // Replace with your actual GA4 measurement ID
+
 export default function RootLayout({
   children,
 }: {
@@ -30,6 +32,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
         <Script
           src="https://api.lindy.ai/api/lindyEmbed/lindyEmbed.js?a=2718a2bb-5dd2-467c-90f0-b3001981389d"
