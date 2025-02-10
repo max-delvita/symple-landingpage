@@ -16,6 +16,7 @@ export default function LandingPage() {
   const [email, setEmail] = useState("")
   const [isSubmittingEmail, setIsSubmittingEmail] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [waitingList, setWaitingList] = useState(false)
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -40,7 +41,10 @@ export default function LandingPage() {
     try {
       const { error: supabaseError } = await supabase
         .from('email_signups')
-        .insert([{ email }])
+        .insert([{ 
+          email,
+          waiting_list: waitingList 
+        }])
 
       if (supabaseError) {
         console.error('Supabase error:', supabaseError)
@@ -48,12 +52,13 @@ export default function LandingPage() {
         throw supabaseError
       }
 
-      trackEvent('email_signup_success', { email })
+      trackEvent('email_signup_success', { email, waiting_list: waitingList })
       toast({
         title: "Success!",
         description: "Thank you for signing up. Our agent will be in touch soon.",
       })
       setEmail("")
+      setWaitingList(false)
     } catch (err) {
       console.error('Error submitting email:', err)
       
@@ -163,22 +168,38 @@ export default function LandingPage() {
             <p className="text-center text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
               Simplify your workflow with AskSymple. <br className="hidden md:block"/>No new apps or interfaces&mdash;just send an email, and we&apos;ll handle the rest.
             </p>
-            <form onSubmit={handleEmailSignup} className="flex flex-col md:flex-row max-w-xl mx-auto gap-4 mt-8 px-4 md:px-0">
-              <Input
-                type="email"
-                placeholder="Enter your company email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="h-12 bg-secondary border-none text-white placeholder:text-muted-foreground rounded-lg text-base shadow-glow"
-                required
-              />
-              <Button 
-                type="submit"
-                disabled={isSubmittingEmail}
-                className="h-12 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-glow hover-lift whitespace-nowrap"
-              >
-                {isSubmittingEmail ? "Submitting..." : "Try our assistant now"}
-              </Button>
+            <form onSubmit={handleEmailSignup} className="flex flex-col max-w-xl mx-auto gap-4 mt-8 px-4 md:px-0">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col md:flex-row gap-4">
+                  <Input
+                    type="email"
+                    placeholder="Enter your company email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="h-12 bg-secondary border-none text-white placeholder:text-muted-foreground rounded-lg text-base shadow-glow flex-grow"
+                    required
+                  />
+                  <Button 
+                    type="submit"
+                    disabled={isSubmittingEmail}
+                    className="h-12 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-glow hover-lift whitespace-nowrap"
+                  >
+                    {isSubmittingEmail ? "Submitting..." : "Try our assistant now"}
+                  </Button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    id="waitingList"
+                    className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    onChange={(e) => setWaitingList(e.target.checked)}
+                    checked={waitingList}
+                  />
+                  <label htmlFor="waitingList" className="text-sm text-muted-foreground">
+                    Add me to the waiting list
+                  </label>
+                </div>
+              </div>
             </form>
           </div>
         </div>
