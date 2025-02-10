@@ -466,6 +466,9 @@ export default function LandingPage() {
               >
                 Submit Feature Request
               </Button>
+              <p className="text-sm text-muted-foreground text-center">
+                By submitting this form, you agree to our <Link href="/terms" className="text-primary hover:text-primary/90 underline">Terms and Conditions</Link>
+              </p>
             </form>
           </div>
         </div>
