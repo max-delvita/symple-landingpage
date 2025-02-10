@@ -203,7 +203,7 @@ export default function LandingPage() {
                       <Calendar className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                       <h3 className="text-2xl md:text-3xl font-bold">Calendar Management</h3>
                     </div>
-                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Ready</span>
+                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Beta</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Effortlessly schedule and coordinate meetings across time zones. Our AI assistant handles all the back-and-forth, finds the perfect time slots, and sends out invitations—all through email.
@@ -244,7 +244,7 @@ export default function LandingPage() {
                       <Mail className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                       <h3 className="text-2xl md:text-3xl font-bold">Email Assistance</h3>
                     </div>
-                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Ready</span>
+                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Beta</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Get help composing professional emails and intelligent response suggestions. Our AI analyzes context and tone to help you communicate effectively and maintain relationships.
@@ -285,7 +285,7 @@ export default function LandingPage() {
                       <FileText className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                       <h3 className="text-2xl md:text-3xl font-bold">Content Processing</h3>
                     </div>
-                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Ready</span>
+                    <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20">Beta</span>
                   </div>
                   <p className="text-lg md:text-xl text-muted-foreground">
                     Summarize documents and convert formats seamlessly. Send any document to your AI assistant and get back concise summaries, format conversions, or extracted insights.
