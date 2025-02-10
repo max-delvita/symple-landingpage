@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { Mail, Calendar, FileText, PiggyBank, BarChart3, Users, Menu, X } from "lucide-react"
+import { Mail, Calendar, FileText, PiggyBank, BarChart3, Users } from "lucide-react"
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -16,7 +15,6 @@ export default function LandingPage() {
   const { toast } = useToast()
   const [email, setEmail] = useState("")
   const [isSubmittingEmail, setIsSubmittingEmail] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [waitingList, setWaitingList] = useState(false)
 
   const validateEmail = (email: string) => {
