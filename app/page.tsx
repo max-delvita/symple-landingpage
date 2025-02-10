@@ -518,49 +518,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Power of AI Section */}
-      <div className="relative">
-        <div 
-          className="absolute m-auto blur-[160px] max-w-3xl h-[200px] md:h-[250px] top-12 inset-0 sm:h-[300px] lg:h-[650px]" 
-          style={{background: "linear-gradient(180deg, rgba(232, 140, 81, 0.5) 0%, rgba(255, 200, 150, 0.3) 0.01%, rgba(232, 140, 81, 0.1) 100%)"}}
-        />
-        <Image 
-          alt="Background pattern" 
-          src="https://mailgo-rho.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbg-pattern.5aa07776.webp&w=3840&q=75"
-          className="absolute inset-0 w-full h-full object-cover opacity-5"
-          width={3840}
-          height={2160}
-        />
-        <div className="custom-screen py-16 md:py-28 relative">
-          <div className="relative z-10 duration-1000 delay-300 opacity-1">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-white">
-                Get Started: Email us at
-              </h3>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
-                <a href="mailto:amy@asksymple.ai" className="underline">amy@asksymple.ai</a>
-              </h2>
-              <p className="mt-4 text-gray-300 text-base md:text-lg max-w-2xl mx-auto px-4 md:px-0">
-                AskSymple is the perfect answer! Our AI-based assistant can help you with many tedious tasks, from very simple to more complex ones. <br className="hidden md:block"/>We are still in Beta so please be patient. If you have any feedback or questions, send Amy an email and explain what you would like to get help with.
-              </p>
-            </div>
-            <div className="mt-8 flex justify-center font-medium">
-              <Button 
-                asChild
-                className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 md:px-8 py-4 md:py-6 text-base md:text-lg shadow-glow hover-lift flex items-center gap-2"
-              >
-                <Link href="mailto:amy@asksymple.ai">
-                  Start now
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
-                    <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd"></path>
-                  </svg>
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* How It Works Section */}
       <section id="how-it-works" className="py-32 bg-secondary animate-fade-in">
         <div className="custom-screen">
