@@ -1,21 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { Navbar } from "@/components/navbar"
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="custom-screen py-16 lg:py-24">
-        <div className="flex items-center gap-2 mb-8">
-          <Link 
-            href="/" 
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary custom-transition"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-        </div>
+      <Navbar />
+      <div className="custom-screen py-32">
         <div className="prose prose-invert max-w-4xl mx-auto">
           <h1>Privacy Policy</h1>
           <p className="lead">Last updated: February 9, 2024</p>

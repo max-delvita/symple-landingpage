@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, Linkedin } from "lucide-react"
+import { Linkedin } from "lucide-react"
+import { Navbar } from "@/components/navbar"
 
 interface TeamMember {
   name: string
@@ -40,16 +41,8 @@ const teamMembers: TeamMember[] = [
 export default function TeamPage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="custom-screen py-16 lg:py-24">
-        <div className="flex items-center gap-2 mb-8">
-          <Link 
-            href="/" 
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary custom-transition"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-        </div>
+      <Navbar />
+      <div className="custom-screen py-32">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-4">Our Team</h1>
           <p className="text-xl text-muted-foreground text-center mb-16">
