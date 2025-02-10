@@ -168,19 +168,19 @@ export default function LandingPage() {
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
                   <h4 className="text-base md:text-lg font-semibold text-primary mb-4">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 1</span>
                       <span className="whitespace-normal">Email the person you want to invite to a meeting and Cc amy@asksymple.ai</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 2</span>
                       <span className="whitespace-normal">Include your preferred meeting times.</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 3</span>
                       <span className="whitespace-normal">Our AI will coordinate with all participants and find the best time</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 4</span>
                       <span className="whitespace-normal">Receive a calendar invite with all details arranged</span>
                     </li>
@@ -209,19 +209,19 @@ export default function LandingPage() {
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
                   <h4 className="text-base md:text-lg font-semibold text-primary mb-4">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 1</span>
                       <span className="whitespace-normal">Forward any email to amy@asksymple.ai</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 2</span>
                       <span className="whitespace-normal">Add your instructions for the response</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 3</span>
                       <span className="whitespace-normal">Our AI will draft a contextual response</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 4</span>
                       <span className="whitespace-normal">Review, edit, and send the response</span>
                     </li>
@@ -250,19 +250,19 @@ export default function LandingPage() {
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
                   <h4 className="text-base md:text-lg font-semibold text-primary mb-4">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 1</span>
                       <span className="whitespace-normal">Email any document to amy@asksymple.ai</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 2</span>
                       <span className="whitespace-normal">Specify what you need (summary, conversion, analysis)</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 3</span>
                       <span className="whitespace-normal">Our AI will process the document</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 4</span>
                       <span className="whitespace-normal">Receive the processed content in your preferred format</span>
                     </li>
@@ -291,19 +291,19 @@ export default function LandingPage() {
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
                   <h4 className="text-base md:text-lg font-semibold text-primary mb-4">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 1</span>
                       <span className="whitespace-normal">Forward receipts to amy@asksymple.ai</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 2</span>
                       <span className="whitespace-normal">Specify categorization or reporting needs</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 3</span>
                       <span className="whitespace-normal">Our AI will process and organize the data</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 4</span>
                       <span className="whitespace-normal">Receive organized financial reports</span>
                     </li>
@@ -332,19 +332,19 @@ export default function LandingPage() {
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
                   <h4 className="text-base md:text-lg font-semibold text-primary mb-4">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 1</span>
                       <span className="whitespace-normal">Send your data file to amy@asksymple.ai</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 2</span>
                       <span className="whitespace-normal">Describe the analysis you need</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 3</span>
                       <span className="whitespace-normal">Our AI will analyze and visualize the data</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 4</span>
                       <span className="whitespace-normal">Get insights and visualizations back</span>
                     </li>
@@ -373,19 +373,19 @@ export default function LandingPage() {
                 <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
                   <h4 className="text-base md:text-lg font-semibold text-primary mb-4">Try it yourself:</h4>
                   <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 1</span>
                       <span className="whitespace-normal">Email your target criteria to amy@asksymple.ai</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 2</span>
                       <span className="whitespace-normal">Specify the type of leads you're looking for</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 3</span>
                       <span className="whitespace-normal">Our AI will search and verify contacts</span>
                     </li>
-                    <li className="flex items-center gap-2 whitespace-nowrap">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
                       <span className="font-bold text-primary whitespace-nowrap">Step 4</span>
                       <span className="whitespace-normal">Receive a curated list of qualified leads</span>
                     </li>
