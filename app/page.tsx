@@ -443,6 +443,81 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Feature Request Form */}
+      <section className="py-16 md:py-24 bg-secondary/30">
+        <div className="custom-screen">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4">Have a Feature Request?</h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              We're constantly improving. Let us know what features would help your workflow the most.
+            </p>
+            <form onSubmit={async (e) => {
+              e.preventDefault()
+              const form = e.target as HTMLFormElement
+              const formData = new FormData(form)
+              const email = formData.get('email') as string
+              const message = formData.get('message') as string
+
+              if (!validateEmail(email)) {
+                toast({
+                  title: "Invalid email",
+                  description: "Please enter a valid email address",
+                  variant: "destructive",
+                })
+                return
+              }
+
+              try {
+                const { error } = await supabase
+                  .from('lead_forms')
+                  .insert([{ 
+                    email,
+                    message,
+                    type: 'feature_request'
+                  }])
+
+                if (error) throw error
+
+                toast({
+                  title: "Thank you!",
+                  description: "We've received your feature request and will consider it for future updates.",
+                })
+                form.reset()
+                trackEvent('feature_request_submitted', { email })
+              } catch (err) {
+                console.error('Error submitting feature request:', err)
+                toast({
+                  title: "Error",
+                  description: "Something went wrong. Please try again.",
+                  variant: "destructive",
+                })
+                trackEvent('feature_request_error', { error: JSON.stringify(err) })
+              }
+            }} className="space-y-4">
+              <Input
+                type="email"
+                name="email"
+                placeholder="Your company email"
+                className="h-12 bg-secondary border-none text-white placeholder:text-muted-foreground rounded-lg text-base shadow-glow"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Describe the feature you'd like to see..."
+                className="w-full h-32 p-4 bg-secondary border-none text-white placeholder:text-muted-foreground rounded-lg text-base shadow-glow resize-none"
+                required
+              />
+              <Button 
+                type="submit"
+                className="w-full h-12 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-glow hover-lift"
+              >
+                Submit Feature Request
+              </Button>
+            </form>
+          </div>
+        </div>
+      </section>
+
       {/* Power of AI Section */}
       <div className="relative">
         <div 
