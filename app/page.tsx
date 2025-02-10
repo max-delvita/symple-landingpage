@@ -472,8 +472,7 @@ export default function LandingPage() {
                   .from('lead_forms')
                   .insert([{ 
                     email,
-                    description: message,
-                    type: 'feature_request'
+                    message
                   }])
 
                 if (error) throw error
