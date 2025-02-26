@@ -92,10 +92,10 @@ export default function LandingPage() {
           <div className="mx-auto max-w-4xl space-y-6 md:space-y-8">
             <h1 className="text-center">
               <div className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-2 md:mb-4">
-                Amy@AskSymple.AI
+                Symple
               </div>
-              <div className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text">
-                Your AI Assistant Accessible via Email
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight gradient-text">
+              Your AI Assistant Accessible <br/>via Email Whatsapp and Voice
               </div>
             </h1>
             <p className="text-center text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -104,21 +104,21 @@ export default function LandingPage() {
             <form onSubmit={handleEmailSignup} className="flex flex-col max-w-xl mx-auto gap-4 mt-8 px-4 md:px-0">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col md:flex-row gap-4">
-                  <Input
-                    type="email"
+              <Input
+                type="email"
                     placeholder="Enter your company email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                     className="h-12 bg-secondary border-none text-white placeholder:text-muted-foreground rounded-lg text-base shadow-glow flex-grow"
-                    required
-                  />
-                  <Button 
-                    type="submit"
-                    disabled={isSubmittingEmail}
+                required
+              />
+              <Button 
+                type="submit"
+                disabled={isSubmittingEmail}
                     className="h-12 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-glow hover-lift whitespace-nowrap"
-                  >
-                    {isSubmittingEmail ? "Submitting..." : "Try our assistant now"}
-                  </Button>
+              >
+                {isSubmittingEmail ? "Submitting..." : "Try our assistant now"}
+              </Button>
                 </div>
                 <div className="flex items-center gap-2">
                   <input
@@ -143,8 +143,8 @@ export default function LandingPage() {
         <div className="custom-screen">
           <div className="text-center mx-auto max-w-4xl mb-16 md:mb-24">
             <h2 className="text-3xl md:text-5xl font-bold gradient-text-white tracking-tight">
-              What AskSymple Can Do for You
-            </h2>
+          What AskSymple Can Do for You
+          </h2>
           </div>
           
           <div className="mt-16 md:mt-24">
@@ -519,7 +519,7 @@ export default function LandingPage() {
         <div className="custom-screen">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} AskSymple.ai. All rights reserved.
+              © {new Date().getFullYear()} Alpha Gamma PTE Ltd. All rights reserved. UEN: 202505375R 
             </p>
             <div className="flex gap-4">
               <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary custom-transition">
