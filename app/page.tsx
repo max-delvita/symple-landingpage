@@ -10,6 +10,11 @@ import { supabase } from "@/lib/supabase"
 import { useToast } from "@/components/ui/use-toast"
 import { trackEvent } from "@/lib/utils"
 import { Navbar } from "@/components/navbar"
+import { SignInButton } from '@clerk/nextjs'
+
+function Home() {
+  return <SignInButton />
+}
 
 export default function LandingPage() {
   const { toast } = useToast()
