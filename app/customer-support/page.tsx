@@ -7,7 +7,7 @@ import axios from "axios"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Clock, MessageSquare, Zap, CheckCircle } from "lucide-react"
+import { Clock, MessageSquare, Zap, CheckCircle, AlertCircle } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
 import { supabase } from "@/lib/supabase"
 
@@ -21,15 +21,41 @@ export default function CustomerSupportPage() {
     telephone: ""
   })
   
+  // Form validation errors
+  const [formErrors, setFormErrors] = useState({
+    telephone: ""
+  })
+  
   // Loading state for form submission
   const [isSubmitting, setIsSubmitting] = useState(false)
   
   // Success state
   const [isSubmitted, setIsSubmitted] = useState(false)
   
+  // Validate phone number
+  const validatePhoneNumber = (phone: string) => {
+    if (!phone) return true; // Phone is optional
+    
+    // Basic phone validation - allows various formats with optional country code
+    // Accepts: +1 (123) 456-7890, 123-456-7890, 1234567890, +65 1234 5678, etc.
+    const phoneRegex = /^(\+?\d{1,3})?[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+    return phoneRegex.test(phone);
+  }
+  
   // Handle demo form submission
   const handleDemoSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Reset errors
+    setFormErrors({ telephone: "" })
+    
+    // Validate phone number
+    if (demoForm.telephone && !validatePhoneNumber(demoForm.telephone)) {
+      setFormErrors({
+        telephone: "Please enter a valid phone number"
+      })
+      return;
+    }
     
     // Set loading state
     setIsSubmitting(true)
@@ -100,6 +126,12 @@ export default function CustomerSupportPage() {
   // Handle form input changes for the demo form
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
+    
+    // Clear error when user types in the field
+    if (name === 'telephone') {
+      setFormErrors({ telephone: "" })
+    }
+    
     setDemoForm(prev => ({
       ...prev,
       [name]: value
@@ -183,9 +215,18 @@ export default function CustomerSupportPage() {
                         type="tel"
                         value={demoForm.telephone}
                         onChange={handleInputChange}
-                        className="w-full p-3 rounded-lg border border-border"
+                        className={`w-full p-3 rounded-lg border ${formErrors.telephone ? 'border-red-500' : 'border-border'}`}
                         placeholder="+1 (123) 456-7890"
                       />
+                      {formErrors.telephone && (
+                        <div className="flex items-center gap-1 mt-1 text-red-500 text-xs">
+                          <AlertCircle className="h-3 w-3" />
+                          <span>{formErrors.telephone}</span>
+                        </div>
+                      )}
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Optional. Include country code for international numbers.
+                      </p>
                     </div>
                     <Button 
                       type="submit"
@@ -294,9 +335,9 @@ export default function CustomerSupportPage() {
                       3
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Integrate with your website or app</h3>
+                      <h3 className="text-xl font-semibold mb-2">Get your dedicated Whatsapp Number</h3>
                       <p className="text-muted-foreground">
-                        Add a simple code snippet to your site or connect via our API to your existing systems.
+                        Our team will set up a dedicated Whatsapp number for your business that you can share with your customers.
                       </p>
                     </div>
                   </li>
