@@ -19,4 +19,12 @@ export type LeadForm = {
   company_name: string
   use_case: string
   created_at: string
+}
+
+export type Lead = {
+  id?: number
+  created_at?: string
+  name: string
+  email: string
+  tel?: string
 } 

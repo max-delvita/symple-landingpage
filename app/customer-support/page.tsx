@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Clock, MessageSquare, Zap } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
+import { supabase } from "@/lib/supabase"
 
 export default function CustomerSupportPage() {
   const { toast } = useToast()
@@ -38,42 +39,38 @@ export default function CustomerSupportPage() {
     console.log("Submitting form data:", demoForm)
     
     try {
-      // Prepare the data to send
-      const formData = {
+      // Prepare the data to send to Supabase
+      const leadData = {
         name: demoForm.name,
         email: demoForm.email,
-        telephone: demoForm.telephone,
-        source: 'customer-support-demo',
-        timestamp: new Date().toISOString()
+        tel: demoForm.telephone || null,
+        // Note: id and created_at will be handled automatically by Supabase
       }
       
-      // Convert to JSON string for logging
-      const jsonData = JSON.stringify(formData)
-      console.log("Sending to webhook via proxy (JSON):", jsonData)
+      console.log("Sending to Supabase:", leadData)
       
-      // Send the data to our API route instead of directly to webhook.site
-      const response = await axios.post(
-        '/api/webhook-proxy',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        }
-      )
+      // Insert data into the leads table
+      const { data, error } = await supabase
+        .from('leads')
+        .insert([leadData])
+        .select()
       
-      console.log("API response status:", response.status)
-      console.log("API response data:", response.data)
+      if (error) {
+        throw error
+      }
+      
+      console.log("Supabase response:", data)
       
       // Set debug response
-      const responseText = JSON.stringify(response.data, null, 2)
-      setDebugResponse(responseText || "Empty response (but request was sent)")
+      const responseText = JSON.stringify(data, null, 2)
+      setDebugResponse(responseText || "Data inserted successfully, but no response data returned")
       
       // Show success message
       toast({
         title: "Demo request submitted!",
         description: "We'll contact you shortly to schedule your free demo.",
         variant: "default",
+        className: "bg-orange-500/20 border-orange-500/50 text-orange-700 dark:text-orange-300"
       })
       
       // Reset form
@@ -84,12 +81,7 @@ export default function CustomerSupportPage() {
       
       // Get error details
       let errorMessage = "Unknown error occurred"
-      if (axios.isAxiosError(error)) {
-        errorMessage = error.response 
-          ? `Error ${error.response.status}: ${JSON.stringify(error.response.data)}`
-          : error.message
-        console.error("Axios error details:", error.response?.data)
-      } else if (error instanceof Error) {
+      if (error instanceof Error) {
         errorMessage = error.message
       }
       
@@ -101,6 +93,7 @@ export default function CustomerSupportPage() {
         title: "Something went wrong",
         description: "Please try again later or contact us directly.",
         variant: "destructive",
+        className: "bg-orange-500/20 border-orange-500/50 text-orange-700 dark:text-orange-300"
       })
     } finally {
       // Reset loading state
@@ -108,42 +101,13 @@ export default function CustomerSupportPage() {
     }
   }
   
-  // Form state for the contact form at the bottom
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    website: ""
-  })
-
-  // Handle form input changes for both forms
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, formType: 'demo' | 'contact') => {
+  // Handle form input changes for the demo form
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    if (formType === 'demo') {
-      setDemoForm(prev => ({
-        ...prev,
-        [name]: value
-      }))
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }))
-    }
-  }
-
-  // Handle contact form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Form submission logic would go here
-    console.log("Form submitted:", formData)
-    // Reset form after submission
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      website: ""
-    })
+    setDemoForm(prev => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
   return (
@@ -174,7 +138,7 @@ export default function CustomerSupportPage() {
                     name="name"
                     type="text"
                     value={demoForm.name}
-                    onChange={(e) => handleInputChange(e, 'demo')}
+                    onChange={handleInputChange}
                     required
                     className="w-full p-3 rounded-lg border border-border"
                     placeholder="Your name"
@@ -189,7 +153,7 @@ export default function CustomerSupportPage() {
                     name="email"
                     type="email"
                     value={demoForm.email}
-                    onChange={(e) => handleInputChange(e, 'demo')}
+                    onChange={handleInputChange}
                     required
                     className="w-full p-3 rounded-lg border border-border"
                     placeholder="your.email@example.com"
@@ -204,7 +168,7 @@ export default function CustomerSupportPage() {
                     name="telephone"
                     type="tel"
                     value={demoForm.telephone}
-                    onChange={(e) => handleInputChange(e, 'demo')}
+                    onChange={handleInputChange}
                     className="w-full p-3 rounded-lg border border-border"
                     placeholder="+1 (123) 456-7890"
                   />
@@ -279,10 +243,16 @@ export default function CustomerSupportPage() {
               Get Started in Minutes
             </h2>
             <div className="flex flex-col md:flex-row items-center gap-12">
-              {/* Left: Image placeholder */}
+              {/* Left: Image */}
               <div className="w-full md:w-1/2 flex justify-center">
-                <div className="w-full max-w-md h-[300px] bg-secondary/50 rounded-lg flex items-center justify-center border border-border">
-                  <p className="text-muted-foreground">Image Placeholder</p>
+                <div className="w-full max-w-md relative rounded-lg overflow-hidden shadow-lg border border-border">
+                  <Image 
+                    src="/customer-support.jpg" 
+                    alt="Customer Support AI Assistant" 
+                    width={500} 
+                    height={375}
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
               </div>
 
@@ -345,17 +315,25 @@ export default function CustomerSupportPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
               What Our Customers Say
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Quote 1 */}
               <div className="bg-white dark:bg-secondary/30 p-8 rounded-xl shadow-sm border border-border">
                 <p className="text-lg mb-6 italic">
-                  "This AI saved us hours every day! Our team can now focus on complex issues while the AI handles routine questions."
+                  "This is blowing my mind. I can help parents answer questions all the time and WhatsApp is the best way to do that. Wish I had found it sooner."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/20"></div>
+                  <div className="w-10 h-10 rounded-full overflow-hidden">
+                    <Image 
+                      src="/rinie.jpg" 
+                      alt="Rinie Gupta" 
+                      width={40} 
+                      height={40}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div>
-                    <p className="font-semibold">Jane Doe</p>
-                    <p className="text-sm text-muted-foreground">Acme Corp</p>
+                    <p className="font-semibold">Rinie Gupta</p>
+                    <p className="text-sm text-muted-foreground">Modern Indian Parent</p>
                   </div>
                 </div>
               </div>
@@ -366,24 +344,18 @@ export default function CustomerSupportPage() {
                   "Customers love the fast responses. We've seen a 40% increase in customer satisfaction since implementing this solution."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/20"></div>
-                  <div>
-                    <p className="font-semibold">John Smith</p>
-                    <p className="text-sm text-muted-foreground">TechBit</p>
+                <div className="w-10 h-10 rounded-full overflow-hidden">
+                    <Image 
+                      src="/kriti.jpg" 
+                      alt="Rinie Gupta" 
+                      width={40} 
+                      height={40}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </div>
-              </div>
-
-              {/* Quote 3 */}
-              <div className="bg-white dark:bg-secondary/30 p-8 rounded-xl shadow-sm border border-border">
-                <p className="text-lg mb-6 italic">
-                  "Setup was a breeze, and it just works! The AI's ability to learn from our knowledge base is impressive."
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/20"></div>
                   <div>
-                    <p className="font-semibold">Sarah Lee</p>
-                    <p className="text-sm text-muted-foreground">GrowEasy</p>
+                    <p className="font-semibold">Kriti Gupta</p>
+                    <p className="text-sm text-muted-foreground">Nimbu Kids</p>
                   </div>
                 </div>
               </div>
@@ -394,7 +366,7 @@ export default function CustomerSupportPage() {
         {/* CTA and Form Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-secondary/20 to-background">
           <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-12">
+            <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Ready to Transform Customer Support?
               </h2>
@@ -403,92 +375,33 @@ export default function CustomerSupportPage() {
               </p>
               <Button 
                 asChild
-                className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all mb-12"
+                className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all"
               >
                 <Link href="#">Get Started Today</Link>
               </Button>
             </div>
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="bg-white dark:bg-secondary/30 p-8 rounded-xl shadow-lg border border-border">
-              <h3 className="text-2xl font-semibold mb-6">Request More Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => handleInputChange(e, 'contact')}
-                    required
-                    className="w-full p-3 rounded-lg border border-border"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange(e, 'contact')}
-                    required
-                    className="w-full p-3 rounded-lg border border-border"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium mb-2">
-                    Company
-                  </label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    value={formData.company}
-                    onChange={(e) => handleInputChange(e, 'contact')}
-                    required
-                    className="w-full p-3 rounded-lg border border-border"
-                    placeholder="Your company"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="website" className="block text-sm font-medium mb-2">
-                    Website
-                  </label>
-                  <Input
-                    id="website"
-                    name="website"
-                    type="text"
-                    value={formData.website}
-                    onChange={(e) => handleInputChange(e, 'contact')}
-                    className="w-full p-3 rounded-lg border border-border"
-                    placeholder="https://example.com"
-                  />
-                </div>
-              </div>
-              <Button 
-                type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-lg"
-              >
-                Submit
-              </Button>
-              <p className="text-sm text-muted-foreground text-center mt-4">
-                By submitting this form, you agree to our <Link href="/terms" className="text-primary hover:text-primary/90 underline">Terms and Conditions</Link>
-              </p>
-            </form>
           </div>
         </section>
       </main>
 
-      {/* Footer would go here */}
-      {/* <Footer /> */}
+      {/* Footer */}
+      <footer className="border-t border-border py-8">
+        <div className="custom-screen">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-center text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Alpha Gamma PTE Ltd. All rights reserved. UEN: 202505375R 
+            </p>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary custom-transition">
+                Privacy
+              </Link>
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary custom-transition">
+                Terms
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 } 
