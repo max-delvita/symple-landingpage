@@ -7,7 +7,7 @@ import axios from "axios"
 import { Navbar } from "@/components/navbar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Clock, MessageSquare, Zap } from "lucide-react"
+import { Clock, MessageSquare, Zap, CheckCircle } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
 import { supabase } from "@/lib/supabase"
 
@@ -24,8 +24,8 @@ export default function CustomerSupportPage() {
   // Loading state for form submission
   const [isSubmitting, setIsSubmitting] = useState(false)
   
-  // Response state for debugging
-  const [debugResponse, setDebugResponse] = useState<string | null>(null)
+  // Success state
+  const [isSubmitted, setIsSubmitted] = useState(false)
   
   // Handle demo form submission
   const handleDemoSubmit = async (e: React.FormEvent) => {
@@ -33,7 +33,7 @@ export default function CustomerSupportPage() {
     
     // Set loading state
     setIsSubmitting(true)
-    setDebugResponse(null)
+    setIsSubmitted(false)
     
     // Log form data for debugging
     console.log("Submitting form data:", demoForm)
@@ -61,10 +61,6 @@ export default function CustomerSupportPage() {
       
       console.log("Supabase response:", data)
       
-      // Set debug response
-      const responseText = JSON.stringify(data, null, 2)
-      setDebugResponse(responseText || "Data inserted successfully, but no response data returned")
-      
       // Show success message
       toast({
         title: "Demo request submitted!",
@@ -72,6 +68,9 @@ export default function CustomerSupportPage() {
         variant: "default",
         className: "bg-orange-500/20 border-orange-500/50 text-orange-700 dark:text-orange-300"
       })
+      
+      // Set success state
+      setIsSubmitted(true)
       
       // Reset form
       setDemoForm({ name: "", email: "", telephone: "" })
@@ -84,9 +83,6 @@ export default function CustomerSupportPage() {
       if (error instanceof Error) {
         errorMessage = error.message
       }
-      
-      // Set debug response
-      setDebugResponse(`Error: ${errorMessage}`)
       
       // Show error message
       toast({
@@ -127,68 +123,80 @@ export default function CustomerSupportPage() {
             </p>
             
             <div className="max-w-md mx-auto bg-white dark:bg-secondary/30 p-6 rounded-xl shadow-lg border border-border">
-              <h3 className="text-xl font-semibold mb-4">Book a Free Demo</h3>
-              <form onSubmit={handleDemoSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="demo-name" className="block text-sm font-medium mb-2 text-left">
-                    Name
-                  </label>
-                  <Input
-                    id="demo-name"
-                    name="name"
-                    type="text"
-                    value={demoForm.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full p-3 rounded-lg border border-border"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="demo-email" className="block text-sm font-medium mb-2 text-left">
-                    Email
-                  </label>
-                  <Input
-                    id="demo-email"
-                    name="email"
-                    type="email"
-                    value={demoForm.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full p-3 rounded-lg border border-border"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="demo-telephone" className="block text-sm font-medium mb-2 text-left">
-                    Telephone
-                  </label>
-                  <Input
-                    id="demo-telephone"
-                    name="telephone"
-                    type="tel"
-                    value={demoForm.telephone}
-                    onChange={handleInputChange}
-                    className="w-full p-3 rounded-lg border border-border"
-                    placeholder="+1 (123) 456-7890"
-                  />
-                </div>
-                <Button 
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-lg"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Submitting..." : "Book a Free Demo"}
-                </Button>
-                
-                {/* Debug response display */}
-                {debugResponse && (
-                  <div className="mt-4 p-3 bg-secondary/30 rounded-lg text-xs overflow-auto max-h-48">
-                    <p className="font-semibold mb-1">Response from server:</p>
-                    <pre className="whitespace-pre-wrap break-words">{debugResponse}</pre>
+              {isSubmitted ? (
+                <div className="py-8 text-center">
+                  <div className="flex justify-center mb-4">
+                    <CheckCircle className="h-16 w-16 text-green-500" />
                   </div>
-                )}
-              </form>
+                  <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Your demo request has been submitted successfully. We'll contact you shortly to schedule your free demo.
+                  </p>
+                  <Button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="bg-primary hover:bg-primary/90 text-white font-medium"
+                  >
+                    Request Another Demo
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <h3 className="text-xl font-semibold mb-4">Book a Free Demo</h3>
+                  <form onSubmit={handleDemoSubmit} className="space-y-4">
+                    <div>
+                      <label htmlFor="demo-name" className="block text-sm font-medium mb-2 text-left">
+                        Name
+                      </label>
+                      <Input
+                        id="demo-name"
+                        name="name"
+                        type="text"
+                        value={demoForm.name}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full p-3 rounded-lg border border-border"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="demo-email" className="block text-sm font-medium mb-2 text-left">
+                        Email
+                      </label>
+                      <Input
+                        id="demo-email"
+                        name="email"
+                        type="email"
+                        value={demoForm.email}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full p-3 rounded-lg border border-border"
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="demo-telephone" className="block text-sm font-medium mb-2 text-left">
+                        Telephone
+                      </label>
+                      <Input
+                        id="demo-telephone"
+                        name="telephone"
+                        type="tel"
+                        value={demoForm.telephone}
+                        onChange={handleInputChange}
+                        className="w-full p-3 rounded-lg border border-border"
+                        placeholder="+1 (123) 456-7890"
+                      />
+                    </div>
+                    <Button 
+                      type="submit"
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-lg"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Submitting..." : "Book a Free Demo"}
+                    </Button>
+                  </form>
+                </>
+              )}
             </div>
           </div>
         </section>
