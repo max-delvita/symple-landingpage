@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Mail, Calendar, FileText, PiggyBank, BarChart3, Users } from "lucide-react"
+import { Mail, Calendar, FileText, PiggyBank, BarChart3, Users, HeadphonesIcon } from "lucide-react"
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -153,6 +153,54 @@ export default function LandingPage() {
           </div>
           
           <div className="mt-16 md:mt-24">
+            {/* Customer Support */}
+            <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12 mb-16 md:mb-32">
+              <div className="w-full md:w-1/2 order-1 md:order-1">
+                <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <HeadphonesIcon className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                      <h3 className="text-2xl md:text-3xl font-bold">Customer Support</h3>
+                    </div>
+                    <Link href="/customer-support">
+                      <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20 hover:bg-emerald-500/30 transition-colors cursor-pointer">Beta</span>
+                    </Link>
+                  </div>
+                  <p className="text-lg md:text-xl text-muted-foreground mb-4">
+                    Provide round-the-clock support to your customers with an AI assistant that has access to your knowledge base and can answer questions instantly.
+                  </p>
+                  <Link href="/customer-support">
+                    <Button className="bg-primary hover:bg-primary/90 text-white">
+                      Get Started
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 order-2 md:order-2">
+                <div className="bg-secondary/50 h-full p-6 md:p-8 rounded-lg border border-border shadow-2xl">
+                  <h4 className="text-base md:text-lg font-semibold text-primary mb-4">Easy Setup:</h4>
+                  <ol className="space-y-3 text-muted-foreground text-sm md:text-base">
+                    <li className="flex items-start gap-2 whitespace-nowrap">
+                      <span className="font-bold text-primary whitespace-nowrap">Step 1</span>
+                      <span className="whitespace-normal">Send us a whatsapp on +65 xxxxxx to get started</span>
+                    </li>
+                    <li className="flex items-start gap-2 whitespace-nowrap">
+                      <span className="font-bold text-primary whitespace-nowrap">Step 2</span>
+                      <span className="whitespace-normal">Tell us more about your business and customer needs</span>
+                    </li>
+                    <li className="flex items-start gap-2 whitespace-nowrap">
+                      <span className="font-bold text-primary whitespace-nowrap">Step 3</span>
+                      <span className="whitespace-normal">Set up your private Whatsapp number</span>
+                    </li>
+                    <li className="flex items-start gap-2 whitespace-nowrap">
+                      <span className="font-bold text-primary whitespace-nowrap">Step 4</span>
+                      <span className="whitespace-normal">Share your number with your base and get started</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
             {/* Calendar Management */}
             <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12 mb-16 md:mb-32">
               <div className="w-full md:w-1/2 order-1 md:order-1">
