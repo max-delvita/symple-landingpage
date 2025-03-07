@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { Button } from "@/components/ui/button"
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,21 +32,27 @@ export function Navbar() {
           <Link href="/team" className="text-sm md:text-base hover:text-primary custom-transition">
             Team
           </Link>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <div className="ml-4">
+            <SignedOut>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-white font-medium px-6">
+                <SignInButton mode="modal" />
+              </Button>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-4">
           <SignedOut>
-            <SignInButton />
+            <Button asChild className="bg-primary hover:bg-primary/90 text-white font-medium">
+              <SignInButton mode="modal" />
+            </Button>
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <UserButton afterSignOutUrl="/" />
           </SignedIn>
           <button 
             className="p-2 hover:bg-secondary/50 rounded-lg transition-colors"
