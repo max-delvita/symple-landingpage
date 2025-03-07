@@ -1,7 +1,14 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
 // Use the recommended pattern with (.*) to match all routes under /sign-in
-const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/'])
+// Add team and privacy pages to public routes
+const isPublicRoute = createRouteMatcher([
+  '/sign-in(.*)', 
+  '/',
+  '/team(.*)',
+  '/privacy(.*)',
+  '/terms(.*)'
+])
 
 export default clerkMiddleware(async (auth, request) => {
   if (!isPublicRoute(request)) {
