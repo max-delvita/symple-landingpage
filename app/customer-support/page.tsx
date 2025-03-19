@@ -136,14 +136,6 @@ export default function CustomerSupportPage() {
               {/* Right side chat demo */}
               <div>
                 <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-                  {/* Chat header - Tabs */}
-                  <div className="bg-[#F6F6F6] border-b border-gray-200">
-                    <div className="flex justify-between px-4 py-2">
-                      <button className="text-gray-500 px-4 py-2">Traditional Support</button>
-                      <button className="text-black font-medium px-4 py-2 bg-white rounded-t-lg border-t border-x border-gray-200">AskSymple Assistant</button>
-                    </div>
-                  </div>
-
                   {/* Chat interface */}
                   <div className="bg-[#128C7E] p-3 flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-[#075E54] flex items-center justify-center text-white font-bold">
