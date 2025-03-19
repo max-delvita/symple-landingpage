@@ -160,7 +160,7 @@ export default function LandingPage() {
                   <div className="flex items-center justify-between gap-3 mb-4">
                     <div className="flex items-center gap-3">
                       <HeadphonesIcon className="h-6 w-6 md:h-8 md:w-8 text-primary" />
-                      <h3 className="text-2xl md:text-3xl font-bold">Customer Support</h3>
+                      <h3 className="text-2xl md:text-3xl font-bold">AI Whatsapp Assistant</h3>
                     </div>
                     <Link href="/customer-support">
                       <span className="px-2 py-0.5 text-xs font-medium bg-emerald-500/20 text-emerald-500 rounded-full border border-emerald-500/20 hover:bg-emerald-500/30 transition-colors cursor-pointer">Beta</span>
